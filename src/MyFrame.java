@@ -4,12 +4,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import  javax.swing.ImageIcon;
 import javax.swing.border.Border;
+import java.util.ArrayList;
 
 public class MyFrame extends JFrame implements ActionListener {
     JButton addCourse;
     JButton studentInfo;
 
     MyFrame(){
+        String studentName = JOptionPane.showInputDialog("Student Name?");
+        String year = JOptionPane.showInputDialog("What year is the student");
+        String onTrack = JOptionPane.showInputDialog("On track for college?");
+        StudentInfo newStudent = new StudentInfo(studentName, year, onTrack);
 
 
         ImageIcon image = new ImageIcon("src/bths.png");
@@ -62,7 +67,11 @@ public class MyFrame extends JFrame implements ActionListener {
     }
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==addCourse){
-            System.out.print("poo");
+           String courseName = JOptionPane.showInputDialog("Course Name?");
+           String comment = JOptionPane.showInputDialog("Teacher comment?");
+           String grade = JOptionPane.showInputDialog("Grade?");
+           Course newCourse = new Course(courseName,grade,comment);
+           System.out.println(newCourse.toString());
         }
         if(e.getSource()==studentInfo){
             System.out.print("pee");
