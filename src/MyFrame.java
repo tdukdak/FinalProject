@@ -9,13 +9,13 @@ import java.util.ArrayList;
 public class MyFrame extends JFrame implements ActionListener {
     JButton addCourse;
     JButton studentInfo;
+    private StudentInfo newStudent;
 
     MyFrame(){
         String studentName = JOptionPane.showInputDialog("Student Name?");
         String year = JOptionPane.showInputDialog("What year is the student");
-        String onTrack = JOptionPane.showInputDialog("On track for college?");
-        StudentInfo newStudent = new StudentInfo(studentName, year, onTrack);
-
+        String onTrack = JOptionPane.showInputDialog("On track for college?(on or not on)");
+        newStudent = new StudentInfo(studentName, year, onTrack);
 
         ImageIcon image = new ImageIcon("src/bths.png");
         Border border = BorderFactory.createLineBorder(Color.blue,3);
@@ -29,10 +29,6 @@ public class MyFrame extends JFrame implements ActionListener {
         studentInfo.addActionListener(this);
         studentInfo.setText("View student info");
         studentInfo.setFocusable(false);
-
-
-
-
 
         JLabel label = new JLabel();
         label.setText("Brooklyn Technical High School Transcript: ");
@@ -52,14 +48,12 @@ public class MyFrame extends JFrame implements ActionListener {
 
 
 
-
         this.setTitle("Transcript");
         this.setDefaultCloseOperation(MyFrame.EXIT_ON_CLOSE);
         this.setSize(800,1600);
         this.setResizable(false);
         this.setVisible(true);
         this.add(label);
-
 
 
         this.setIconImage(image.getImage());
@@ -74,7 +68,7 @@ public class MyFrame extends JFrame implements ActionListener {
            System.out.println(newCourse.toString());
         }
         if(e.getSource()==studentInfo){
-            System.out.print("pee");
+            JOptionPane.showMessageDialog(null, newStudent.toString(), "title", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 

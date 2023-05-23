@@ -35,4 +35,8 @@ public class StudentInfo {
         return onTrack;
     }
 
+    public String toString(){
+        return studentName + " is in the " + year + " grade and is " + onTrack + " track for college" ;
+    }
+
 }
