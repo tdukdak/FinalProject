@@ -10,6 +10,8 @@ public class MyFrame extends JFrame implements ActionListener {
     JButton addCourse;
     JButton studentInfo;
     private StudentInfo newStudent;
+    private JTextArea textArea1;
+
 
     MyFrame(){
         String studentName = JOptionPane.showInputDialog("Student Name?");
@@ -29,6 +31,9 @@ public class MyFrame extends JFrame implements ActionListener {
         studentInfo.addActionListener(this);
         studentInfo.setText("View student info");
         studentInfo.setFocusable(false);
+        textArea1 = new JTextArea("");
+        textArea1.setLocation(100,500);
+        textArea1.setSize(new Dimension(500,100));
 
         JLabel label = new JLabel();
         label.setText("Brooklyn Technical High School Transcript: ");
@@ -45,6 +50,7 @@ public class MyFrame extends JFrame implements ActionListener {
         label.setHorizontalAlignment(JLabel.CENTER);
         label.add(addCourse);
         label.add(studentInfo);
+        label.add(textArea1);
 
 
 
@@ -61,11 +67,11 @@ public class MyFrame extends JFrame implements ActionListener {
     }
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==addCourse){
-           String courseName = JOptionPane.showInputDialog("Course Name?");
-           String comment = JOptionPane.showInputDialog("Teacher comment?");
-           String grade = JOptionPane.showInputDialog("Grade?");
-           Course newCourse = new Course(courseName,grade,comment);
-           System.out.println(newCourse.toString());
+            String courseName = JOptionPane.showInputDialog("Course Name?");
+            String comment = JOptionPane.showInputDialog("Teacher comment?");
+            String grade = JOptionPane.showInputDialog("Grade?");
+            Course newCourse = new Course(courseName,grade,comment);
+            textArea1.append("\n" + newCourse.toString());
         }
         if(e.getSource()==studentInfo){
             JOptionPane.showMessageDialog(null, newStudent.toString(), "title", JOptionPane.INFORMATION_MESSAGE);
