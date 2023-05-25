@@ -2,11 +2,13 @@ public class StudentInfo {
     private String studentName;
     private String year;
     private String onTrack;
+    private int GPA;
 
     public StudentInfo(String studentName, String year, String onTrack){
         this.studentName = studentName;
         this.year = year;
         this.onTrack = onTrack;
+        GPA = 0;
     }
 
     public void setStudentName(String studentName) {
@@ -31,12 +33,29 @@ public class StudentInfo {
         return year;
     }
 
-    public String  isOnTrack() {
+    public String  getOnTrack() {
         return onTrack;
     }
 
+    public int getGPA() {
+        return GPA;
+    }
+
+    public void setGPA(int GPA) {
+        this.GPA = GPA;
+    }
+
+    public void checkIfFailing(){
+        if(GPA < 65){
+            onTrack = "not on";
+        }
+        else{
+            onTrack = "on";
+        }
+    }
+
     public String toString(){
-        return studentName + " is in the " + year + " grade and is " + onTrack + " track for college" ;
+        return studentName + " is in the " + year + " grade and is " + onTrack + " track for college with a GPA of: " + getGPA() ;
     }
 
 }

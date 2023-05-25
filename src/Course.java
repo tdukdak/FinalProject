@@ -5,6 +5,7 @@ public class Course {
     private String comment;
     private ArrayList<Course> courses = new ArrayList<Course>();
 
+
     public Course(String courseName, String grade, String comment){
         this.courseName = courseName;
         this.grade = grade;
@@ -36,15 +37,18 @@ public class Course {
         this.comment = comment;
     }
 
-    public ArrayList<Course> getCourses() {
-        return courses;
-    }
-
-    public void setCourses(ArrayList<Course> courses) {
-        this.courses = courses;
+    public int calculateGPA(ArrayList<Course> courses){
+        this.courses= courses;
+        int count = 0;
+        int total = 0;
+        for(int i = 0; i < courses.size(); i++){
+            total += Integer.parseInt(courses.get(i).getGrade());
+            count++;
+        }
+        return total/count;
     }
 
     public String toString(){
-        return courseName + ", " + comment + ", " + grade;
+        return "Course name: " + courseName + ", Teacher comment: " + comment + ", grade: " + grade;
     }
 }

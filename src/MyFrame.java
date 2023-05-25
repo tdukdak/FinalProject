@@ -11,6 +11,8 @@ public class MyFrame extends JFrame implements ActionListener {
     JButton studentInfo;
     private StudentInfo newStudent;
     private JTextArea textArea1;
+    private ArrayList<Course> courses = new ArrayList<Course>();
+
 
 
     MyFrame(){
@@ -32,8 +34,9 @@ public class MyFrame extends JFrame implements ActionListener {
         studentInfo.setText("View student info");
         studentInfo.setFocusable(false);
         textArea1 = new JTextArea("");
-        textArea1.setLocation(100,500);
-        textArea1.setSize(new Dimension(500,100));
+        textArea1.setLocation(4,500);
+        textArea1.setSize(new Dimension(750,500));
+        textArea1.setFont(new Font("Times New Roman", Font.PLAIN,20));
 
         JLabel label = new JLabel();
         label.setText("Brooklyn Technical High School Transcript: ");
@@ -71,7 +74,10 @@ public class MyFrame extends JFrame implements ActionListener {
             String comment = JOptionPane.showInputDialog("Teacher comment?");
             String grade = JOptionPane.showInputDialog("Grade?");
             Course newCourse = new Course(courseName,grade,comment);
+            courses.add(newCourse);
             textArea1.append("\n" + newCourse.toString());
+            newStudent.setGPA(newCourse.calculateGPA(courses));
+            newStudent.checkIfFailing();
         }
         if(e.getSource()==studentInfo){
             JOptionPane.showMessageDialog(null, newStudent.toString(), "title", JOptionPane.INFORMATION_MESSAGE);
