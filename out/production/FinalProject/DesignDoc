@@ -1,4 +1,3 @@
-Transcript class:
 private String studentName;
 private int year;
 private boolean onTrack;
