@@ -6,14 +6,14 @@ import  javax.swing.ImageIcon;
 import javax.swing.border.Border;
 import java.util.ArrayList;
 
-public class MyFrame extends JFrame implements ActionListener {
+public class TranscriptGUI extends JFrame implements ActionListener {
     JButton addCourse;
     JButton studentInfo;
     private StudentInfo newStudent;
     private JTextArea textArea1;
     private ArrayList<Course> courses = new ArrayList<Course>();
 
-    MyFrame(){
+    TranscriptGUI(){
         String studentName = JOptionPane.showInputDialog("Student Name?");
         String year = JOptionPane.showInputDialog("What year is the student");
         String onTrack = JOptionPane.showInputDialog("On track for college?(on or not on)");
@@ -39,7 +39,6 @@ public class MyFrame extends JFrame implements ActionListener {
         textArea1.setFont(new Font("Times New Roman", Font.PLAIN,20));
         textArea1.setBackground(new Color(137, 207, 240));
 
-
         JLabel label = new JLabel();
         label.setText("Brooklyn Technical High School Transcript: ");
         label.setIcon(image);
@@ -58,7 +57,7 @@ public class MyFrame extends JFrame implements ActionListener {
         label.add(textArea1);
 
         this.setTitle("Transcript");
-        this.setDefaultCloseOperation(MyFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(TranscriptGUI.EXIT_ON_CLOSE);
         this.setSize(800,1600);
         this.setResizable(false);
         this.setVisible(true);

@@ -23,8 +23,6 @@ public class StudentInfo {
         this.onTrack = onTrack;
     }
 
-
-
     public String getStudentName() {
         return studentName;
     }

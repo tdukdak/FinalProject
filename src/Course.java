@@ -5,7 +5,6 @@ public class Course {
     private String comment;
     private ArrayList<Course> courses = new ArrayList<Course>();
 
-
     public Course(String courseName, String grade, String comment){
         this.courseName = courseName;
         this.grade = grade;
