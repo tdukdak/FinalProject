@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class TranscriptGUI extends JFrame implements ActionListener {
     JButton addCourse;
     JButton studentInfo;
-    private StudentInfo newStudent;
+    private Student newStudent;
     private JTextArea textArea1;
     private ArrayList<Course> courses = new ArrayList<Course>();
 
@@ -17,7 +17,7 @@ public class TranscriptGUI extends JFrame implements ActionListener {
         String studentName = JOptionPane.showInputDialog("Student Name?");
         String year = JOptionPane.showInputDialog("What year is the student");
         String onTrack = JOptionPane.showInputDialog("On track for college?(on or not on)");
-        newStudent = new StudentInfo(studentName, year, onTrack);
+        newStudent = new Student(studentName, year, onTrack);
 
         ImageIcon image = new ImageIcon("src/bths.png");
         Border border = BorderFactory.createLineBorder(new Color(137, 207, 240), 3);

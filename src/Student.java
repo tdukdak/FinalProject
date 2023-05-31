@@ -1,10 +1,10 @@
-public class StudentInfo {
+public class Student {
     private String studentName;
     private String year;
     private String onTrack;
     private int GPA;
 
-    public StudentInfo(String studentName, String year, String onTrack){
+    public Student(String studentName, String year, String onTrack){
         this.studentName = studentName;
         this.year = year;
         this.onTrack = onTrack;
